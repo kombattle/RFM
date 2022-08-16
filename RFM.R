@@ -17,3 +17,14 @@ view(new_data)
 
 fr_data <- sale_data %>%
   count(customer_id)
+
+com_data <- fr_data %>%
+  left_join(new_data,by = "customer_id") %>%
+  select(customer_id, Recency, Frequency = n,Monetary )
+
+com_data$Recency <- gsub("[a-z]$","",com_data$Recency) 
+com_data$Recency <- as.integer(com_data$Recency)
+com_data$Monetary <- round(com_data$Monetary,2)
+glimpse(com_data)
+
+view(com_data)
