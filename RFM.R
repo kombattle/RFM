@@ -45,3 +45,8 @@ pre_RFM <- com_data %>%
 
 glimpse(pre_RFM)
 view(pre_RFM)
+
+pre_RFM$final_R = 100*(6-pre_RFM$final_R)
+pre_RFM$final_F = 10*pre_RFM$final_F
+
+glimpse(pre_RFM)
