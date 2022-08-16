@@ -28,3 +28,11 @@ com_data$Monetary <- round(com_data$Monetary,2)
 glimpse(com_data)
 
 view(com_data)
+
+com_data %>%
+  summarise(max_recency = max(Recency),
+            max_monetry = max(Monetary),
+            max_fr = max(frequency),
+            min_fr = min(frequency),
+            min_mon = min(Monetary),
+            min_re = min(Recency))
