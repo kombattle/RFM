@@ -50,3 +50,11 @@ pre_RFM$final_R = 100*(6-pre_RFM$final_R)
 pre_RFM$final_F = 10*pre_RFM$final_F
 
 glimpse(pre_RFM)
+
+final_RFM <- pre_RFM %>%
+  mutate(RFM = pre_RFM$final_R+pre_RFM$final_F+pre_RFM$final_M)
+
+glimpse(final_RFM)
+View(final_RFM)
+
+write_csv(final_RFM, "RFM.csv")
