@@ -36,3 +36,12 @@ com_data %>%
             min_fr = min(frequency),
             min_mon = min(Monetary),
             min_re = min(Recency))
+
+
+pre_RFM <- com_data %>%
+  mutate(final_R = cut_number(com_data$Recency, n = 5, label = FALSE, binType = "explicit")) %>% 
+  mutate(final_F = cut_number(com_data$Frequency, n = 5, label = FALSE, binType = "explicit")) %>%
+  mutate(final_M = cut_number(com_data$Monetary, n = 5, label = FALSE, binType = "explicit")) 
+
+glimpse(pre_RFM)
+view(pre_RFM)
