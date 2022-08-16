@@ -14,3 +14,6 @@ new_data <- sale_data %>%
   distinct(customer_id, .keep_all= TRUE)
 
 view(new_data)
+
+fr_data <- sale_data %>%
+  count(customer_id)
